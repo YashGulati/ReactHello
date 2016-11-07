@@ -8,11 +8,17 @@ class InputName extends Component {
      this.state = {name: props.name};
    }
    render(){
+     let nameList = []
+     for(let i = 0;i <10; i++ ){
+       nameList.push(
+         <p key={i}>Hello {this.state.name}</p>
+       )
+     }
      return (
        <div>
         <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})} />
         <br/>
-        Hello {this.state.name}
+        {nameList}
        </div>
      )
    }
