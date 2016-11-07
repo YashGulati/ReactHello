@@ -19,6 +19,11 @@ class App extends Component {
           <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})}/>
           <br/>
           Hello {this.state.name}
+          {/*
+
+            On Next Task Input Tag and Hello{this.state.name} to be in class InputName
+
+          */}
         </p>
       </div>
     );
