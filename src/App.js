@@ -5,7 +5,7 @@ class InputName extends Component {
   constructor(props) {
      super(props);
      // above statement is necessary to run
-     this.state = {name: ""};
+     this.state = {name: props.name};
    }
    render(){
      return (
@@ -27,7 +27,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-            <InputName />
+            <InputName name="Tony"/>
         </p>
       </div>
     );
@@ -35,7 +35,7 @@ class App extends Component {
 }
 /*
 
-Next Task pass Default name to Input Name from App to InputName as props 
+Next Task Print Hello {name} 10 times
 
 */
 export default App;
