@@ -3,6 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+     super(props);
+     // above statement is necessary to run
+     this.state = {name: ""};
+   }
   render() {
     return (
       <div className="App">
@@ -11,13 +16,9 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          Hello World
-          {/*
-            Use a input tag and display Hello {name}
-            For this
-            create construtor and declare state object with key name.
-            in Input tag onChange function calls this.setState function
-          */}
+          <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})}/>
+          <br/>
+          Hello {this.state.name}
         </p>
       </div>
     );
