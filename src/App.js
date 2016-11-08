@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-class InputName extends Component {
+export class InputName extends Component {
   constructor(props) {
      super(props);
      // above statement is necessary to run
@@ -11,19 +11,19 @@ class InputName extends Component {
      let nameList = []
      for(let i = 0;i <10; i++ ){
        nameList.push(
-         <p key={i}>Hello {this.state.name}</p>
+         <p className="InputName" key={i}>Hello {this.state.name}</p>
        )
      }
      return (
-       <div>
-        <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})} />
-        <br/>
-        {nameList}
+       <div className="tony">
+          <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})} />
+          <br/>
+          {nameList}
        </div>
      )
    }
 }
-class App extends Component {
+export class App extends Component {
 
   render() {
     return (
@@ -32,9 +32,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-            <InputName name="Tony"/>
-        </p>
+          <InputName name="Tony"/>
       </div>
     );
   }
@@ -44,4 +42,3 @@ class App extends Component {
 Next Task Print Hello {name} 10 times
 
 */
-export default App;
