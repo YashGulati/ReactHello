@@ -36,6 +36,7 @@ export class App extends Component {
         </div>
           <Link to="/" >Home</Link>
           <Link to="/hello">Hello World </Link>
+          <Link to="/route">Route</Link>
           {this.props.children}
       </div>
     );
