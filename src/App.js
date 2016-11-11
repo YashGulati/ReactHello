@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Link } from 'react-router';
 export class InputName extends Component {
+  default
   constructor(props) {
      super(props);
      // above statement is necessary to run
-     this.state = {name: props.name};
+     this.state = {name: ""};
    }
    render(){
      let nameList = []
@@ -32,7 +34,9 @@ export class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-          <InputName name="Tony"/>
+          <Link to="/" >Home</Link>
+          <Link to="/hello">Hello World </Link>
+          {this.props.children}
       </div>
     );
   }
