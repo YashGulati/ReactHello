@@ -103,3 +103,86 @@ componentDidMount(){
     )
   }
 }
+class Ex extends Component {
+  constructor(props){
+    super(props)
+    this.state = { "name" : props.name }
+  }
+  componentWillReceiveProps(newProps){
+    this.setState({ name : newProps.name})
+  }
+  render(){
+    return (
+      <div>
+       {this.state.name}
+      </div>
+    )
+  }
+}
+export class ComponentWillReceiveProps extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      "componentWillReceiveProps" : "componentWillReceiveProps() is invoked before a mounted component receives new props. If you need to update the state in response to prop changes (for example, to reset it), you may compare this.props and nextProps and perform state transitions using this.setState() in this method. Note that React may call this method even if the props have not changed, so make sure to compare the current and next values if you only want to handle changes. This may occur when the parent component causes your component to re-render. componentWillReceiveProps() is not invoked if you just call this.setState()",
+      "whereIsUsed" : "On all Component where props change in time",
+      "name" : "John Doe"
+    }
+  }
+  render(){
+    return (<div>
+      {this.state.componentWillReceiveProps}
+      <br/>
+      <br/>
+      {this.state.whereIsUsed}
+      <br/>
+      <br/>
+      <Ex name={this.state.name}/>
+      <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})} />
+    </div>)
+  }
+}
+class Ey extends Component {
+  constructor(props){
+    super(props)
+    this.state = { "name" : props.name }
+  }
+  componentWillReceiveProps(newProps){
+    this.setState({ name : newProps.name})
+  }
+
+  shouldComponentUpdate(newProps,newState){
+  if(newProps.name && newProps.name.length > 12)
+        return true
+    return false
+  }
+  render(){
+    console.log(this.state.name,this.state.name.length)
+    return (
+      <div>
+       {this.state.name}
+      </div>
+    )
+  }
+}
+export class ShouldComponentUpdate extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      "ShouldComponentUpdate" : "Use shouldComponentUpdate() to let React know if a component's output is not affected by the current change in state or props. The default behavior is to re-render on every state change, and in the vast majority of cases you should rely on the default behavior. shouldComponentUpdate() is invoked before rendering when new props or state are being received. Defaults to true This method is not called for the initial render or when forceUpdate() is used.",
+      "whereIsUsed" : "This is used to change state and props without rendering the component",
+      "name" : "John Doe"
+    }
+  }
+  render(){
+    return (<div>
+      {this.state.ShouldComponentUpdate}
+      <br/>
+      <br/>
+      {this.state.whereIsUsed}
+      <br/>
+      <br/>
+      <Ey name={this.state.name}/>
+      <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})} />
+    </div>)
+  }
+}
