@@ -291,3 +291,24 @@ componentDidMount(){
     )
   }
 }
+export class ComponentWillUnmount extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      componentWillUnmount : "componentWillUnmount() is invoked immediately before a component is unmounted and destroyed. Perform any necessary cleanup in this method, such as invalidating timers, canceling network requests, or cleaning up any DOM elements that were created in componentDidMount",
+    }
+  }
+  componentWillUnmount() {
+     console.log('Will Unmount');
+   }
+  render(){
+    console.log("render function called")
+    return(
+      <div>
+      {this.state.componentWillUnmount}
+      <p> Please Look at log how in works </p>
+      <button onClick={ e => this.setState({}) }>ComponentWillUnmount</button>
+      </div>
+    )
+  }
+}
