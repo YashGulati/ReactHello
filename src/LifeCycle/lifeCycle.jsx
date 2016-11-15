@@ -62,9 +62,6 @@ export class ComponentDidMount extends Component {
 componentDidMount(){
    this.drawCharts();
  }
- componentDidUpdate(){
-   this.drawCharts();
- }
  /*global someFunction google:true*/
  /*
  ESLint to take google as global varible
@@ -184,5 +181,113 @@ export class ShouldComponentUpdate extends Component {
       <Ey name={this.state.name}/>
       <input value={this.state.name} onChange={ e => this.setState({ name : e.target.value})} />
     </div>)
+  }
+}
+
+export class ComponentWillUpdate extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      "componentWillUpdate" : "",
+      "whereIsUsed" : ""
+    }
+  }
+  componentWillMount(){
+    this.setState({
+      "componentWillUpdate" : "Don't know",
+      "whereIsUsed" : "whose cares"
+    })
+  }
+  componentWillUpdate(){
+    this.setState({
+      "componentWillUpdate" : "componentWillUpdate() is invoked immediately before rendering when new props or state are being received. Use this as an opportunity to perform preparation before an update occurs. This method is not called for the initial render.",
+      "whereIsUsed" : "It is used same as `componentWillMount`"
+    })
+  }
+
+  render(){
+    return (
+      <div>
+       {this.state.componentWillUpdate}
+       <br/>
+       <br/>
+       {this.state.whereIsUsed}
+       <br/>
+       <br/>
+       <button onClick={ e => this.setState({})}>ComponentWillUpdate</button>
+      </div>
+    )
+  }
+}
+
+export class ComponentDidUpdate extends Component {
+  constructor(props){
+    super(props);
+    this.state={componentDidUpdate : "componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.",
+     whereIsUsed : "It is used everywhere componentDidMount is used"}
+  }
+
+componentDidMount(){
+   this.drawCharts();
+ }
+ componentDidUpdate(){
+   this.drawCharts2();
+ }
+ /*global someFunction google:true*/
+ /*
+ ESLint to take google as global varible
+ */
+ drawCharts(){
+   var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work',     11],
+        ['Eat',      2],
+        ['Commute',  2],
+        ['Watch TV', 2],
+        ['Sleep',    7]
+      ]);
+
+      var options = {
+        title: 'My Daily Activities'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('Pie'));
+
+      chart.draw(data, options);
+ }
+ drawCharts2(){
+   var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work',     8],
+        ['Eat',      1],
+        ['Commute',  2],
+        ['Watch TV', 6],
+        ['Sleep',    7]
+      ]);
+
+      var options = {
+        title: 'My Daily Activities'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('Pie'));
+
+      chart.draw(data, options);
+ }
+
+
+  render(){
+    return (
+      <div>
+        {this.state.componentDidUpdate}
+        <br/>
+        <br/>
+        {this.state.whereIsUsed}
+        <br/>
+        <br/>
+        <button onClick={ e => this.setState({})}>ComponentDidUpdate</button>
+        <div id="Pie">
+        </div>
+      </div>
+    )
   }
 }

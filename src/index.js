@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App,InputName } from './App';
 import { HelloWorld, Routeing } from './helloWorld'
-import { LC, ComponentWillMount, ComponentDidMount,ComponentWillReceiveProps, ShouldComponentUpdate } from './LifeCycle/lifeCycle'
+import { LC, ComponentWillMount, ComponentDidMount,ComponentWillReceiveProps, ShouldComponentUpdate, ComponentWillUpdate, ComponentDidUpdate } from './LifeCycle/lifeCycle'
 import './index.css';
 import { Router, Route,  browserHistory,IndexRoute } from 'react-router'
 let route = (
@@ -16,7 +16,8 @@ let route = (
         <Route path="componentDidMount" component={ComponentDidMount}/>
         <Route path="componentWillReceiveProps" component={ComponentWillReceiveProps}/>
         <Route path="shouldComponentUpdate" component={ShouldComponentUpdate}/>
-
+        <Route path="componentWillUpdate" component={ComponentWillUpdate}/>
+        <Route path="componentDidUpdate" component={ComponentDidUpdate}/>
       </Route>
      </Route>
   </Router>
