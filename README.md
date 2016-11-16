@@ -1,5 +1,5 @@
 <b>
-Add an `input tag` and display `Hello {name}`dd
+Add an `input tag` and display `Hello {name}` to React Component `App`
 </b>
 <hr/>
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
