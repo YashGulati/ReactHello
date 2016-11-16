@@ -1,3 +1,10 @@
+Write test cases in `jest` and `enzyme`
+```
+npm i --save-dev react-addons-test-utils
+npm i --save-dev react-dom
+npm i --save-dev enzyme
+```
+<hr/>
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
