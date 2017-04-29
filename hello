@@ -1,0 +1,7 @@
+Hello Tony, I want some help. Can you tell me the fix of the 'refs' problem.
+console.log(this) show refs in it
+but console.log(this.refs) is an empty object.
+
+Thanks in advance
+Yash Gulati
+yashgulati.g1@gmail.com
